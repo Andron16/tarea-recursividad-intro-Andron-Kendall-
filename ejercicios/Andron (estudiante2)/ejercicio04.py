@@ -12,3 +12,25 @@ Casos de prueba:
 • invertir_numero(5071) debe retornar 1705 
 • invertir_numero(8) debe retornar 8
 '''
+def len_num(num):
+    if num == 0:
+        return 1
+    contador = 0
+    while num != 0:
+        contador += 1
+        num //= 10
+    return contador
+
+def invertir_numero(numero, res=0):
+    numero = abs(numero)
+    exp = len_num(numero)
+    if numero == 0:
+        return res
+    else:
+        exp -= 1
+        return invertir_numero(numero // 10, res + ((numero % 10) * (10**exp)))
+    
+print(invertir_numero(1234))
+print(invertir_numero(900))
+print(invertir_numero(5071))
+print(invertir_numero(8))
