@@ -12,3 +12,18 @@ Casos de prueba:
 • mayor_lista([-3, -8, -1, -10]) debe retornar -1 
 • mayor_lista([6]) debe retornar 6
 '''
+
+def mayor_lista(lista):
+    if len(lista) == 1:
+        return lista[0]
+    otros_mayores = mayor_lista(lista[1:])
+    if lista[0] > otros_mayores:
+        return lista[0]
+    return otros_mayores
+    
+
+print(mayor_lista([4, 8, 1, 9, 3]))
+print(mayor_lista([10, 2, 5, 7]))
+print(mayor_lista([-3, -8, -1, -10]))
+print(mayor_lista([6]))
+
