@@ -13,3 +13,17 @@ Casos de prueba:
 • eliminar_impares(80246) debe retornar 80246 
 • eliminar_impares(1007) debe retornar 0
 '''
+
+def eliminar_impares(numero, res=0, exp=0):
+    if numero == 0:
+        return res
+    else:
+        if (numero % 10) % 2 == 0:
+            return eliminar_impares(numero // 10, res + (numero % 10) * (10**exp), exp + 1)
+        else:
+            return eliminar_impares(numero // 10, res, exp)
+
+print(eliminar_impares(123456))
+print(eliminar_impares(97531))
+print(eliminar_impares(80246))
+print(eliminar_impares(1007))

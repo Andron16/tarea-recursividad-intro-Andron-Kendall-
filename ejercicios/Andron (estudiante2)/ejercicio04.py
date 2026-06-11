@@ -23,11 +23,10 @@ def len_num(num):
 
 def invertir_numero(numero, res=0):
     numero = abs(numero)
-    exp = len_num(numero)
+    exp = len_num(numero) - 1
     if numero == 0:
         return res
     else:
-        exp -= 1
         return invertir_numero(numero // 10, res + ((numero % 10) * (10**exp)))
     
 print(invertir_numero(1234))
