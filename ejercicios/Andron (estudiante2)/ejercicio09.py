@@ -15,3 +15,16 @@ Casos de prueba:
 • sublistas_ascendentes([2, 2, 3, 1, 2]) debe retornar [[2], [2, 3], [1, 2]] 
 • sublistas_ascendentes([]) debe retornar []
 '''
+
+def sublistas_ascendentes(lista, actual=[], res=[]):
+    if lista == []:
+        return res + [actual]
+    if actual == [] or lista[0] > actual[-1]:
+        return sublistas_ascendentes(lista[1:], actual + [lista[0]], res)
+    return sublistas_ascendentes(lista[1:], [lista[0]], res + [actual])
+
+print(sublistas_ascendentes([1, 2, 3, 1, 4, 5, 2]))
+print(sublistas_ascendentes([5, 4, 3, 2]))
+print(sublistas_ascendentes([1, 3, 5, 7]))
+print(sublistas_ascendentes([2, 2, 3, 1, 2]))
+print(sublistas_ascendentes([]))
